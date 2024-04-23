@@ -2,22 +2,18 @@
     <div class="chat-container">
       <!-- <p>This should be the message</p> -->
       <p v-for="message in conversationHistory" :key="message.timestamp"> <span v-if="message.role === 'user'">You: {{ message.content }} - {{ message.timestamp }}</span>
-        <span v-else>System: {{ message.content }} - {{ message.timestamp }}</span>
+      <span v-else>System: {{ message.content }} - {{ message.timestamp }}</span>
       </p>
+
     </div>
   </template>
   
     
     <script>
     export default {
-    props: {
+      props: {
       conversationHistory: Array, 
     },
-    // data() {
-    //   return {
-    //     conversationHistory: [],
-    //   };
-    // },
     watch: {
       newMessage(newMessage) { 
         if (newMessage) {
@@ -27,7 +23,6 @@
       },
     },
   };
-  
     </script>
     
     <style scoped>
