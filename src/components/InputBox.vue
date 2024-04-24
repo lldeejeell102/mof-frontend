@@ -24,7 +24,7 @@
           username: username
         }
         const message = this.message
-        console.log(message)
+        // console.log(message)
         this.$emit('newMessage', messageData)
         this.message = "";
 
@@ -47,6 +47,8 @@
             console.log('Error sending message:', await response.text())
           }else {
             console.log('Message sent successfully')
+            const responseData = await response.json()
+            console.log(responseData)
           }
         },
       },
