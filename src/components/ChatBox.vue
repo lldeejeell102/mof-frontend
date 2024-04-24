@@ -4,7 +4,6 @@
       <p v-for="message in conversationHistory" :key="message.timestamp"> <span v-if="message.role === 'user'">You: {{ message.content }} - {{ message.timestamp }}</span>
       <span v-else>System: {{ message.content }} - {{ message.timestamp }}</span>
       </p>
-
     </div>
   </template>
   

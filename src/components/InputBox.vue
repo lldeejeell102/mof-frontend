@@ -6,6 +6,8 @@
   </template>
   
   <script>
+  console.log(localStorage)
+
   export default {
     props: [],
     data() {
@@ -14,17 +16,40 @@
       };
     },
     methods: {
-      sendMessage() {
+      async sendMessage() {
+        const username = localStorage.getItem('username')
         const messageData = {
           content: this.message,
           timestamp: new Date().toISOString(),
-          role: 'user'
+          username: username
         }
-        console.log(JSON.stringify(messageData))
+        const message = this.message
+        console.log(message)
         this.$emit('newMessage', messageData)
         this.message = "";
+
+        await this.postMessage(message, username)
+        },
+        
+        async postMessage(message, username) {
+          const databaseURL = import.meta.env.VITE_APP_DATABASE_URL
+          const token = localStorage.getItem('jwt_token')
+
+          const response = await fetch(`${databaseURL}/mof`, {
+            method: 'POST',
+            headers: { 
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}` },
+            body: JSON.stringify({ message, username }),
+          });
+
+          if(!response.ok){
+            console.log('Error sending message:', await response.text())
+          }else {
+            console.log('Message sent successfully')
+          }
+        },
       },
-    },
   };
   </script>
   

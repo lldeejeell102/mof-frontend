@@ -10,7 +10,8 @@ export default function() {
 
     const submitSignup = async () => {
       try {
-        const response = await fetch('https://mof-backend.onrender.com/user/signup', {
+        const databaseURL = import.meta.env.VITE_APP_DATABASE_URL
+        const response = await fetch(`${databaseURL}/user/signup`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

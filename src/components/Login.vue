@@ -18,8 +18,9 @@
       async login() {
         const email = this.email;
         const password = this.password;
+        const databaseURL = import.meta.env.VITE_APP_DATABASE_URL
   
-        const response = await fetch('https://mof-backend.onrender.com/user/login', {
+        const response = await fetch(`${databaseURL}/user/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password }),
@@ -33,15 +34,16 @@
 
         const data = await response.json();
 
-        console.log(data)
+        // console.log(data)
+        const username = data.user.username
         const token = data.token;
-  
-        // Store the token in localStorage
+        
+        localStorage.setItem('username', username)
         localStorage.setItem('jwt_token', token);
         const userData = data.user
         localStorage.setItem('userData', JSON.stringify(userData))
-        console.log(token)
-        this.$router.push('/message')
+        // console.log(token)
+        this.$router.push({ path:'/chat', query: {username} })
       },
     },
   };

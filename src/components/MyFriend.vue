@@ -23,7 +23,7 @@ export default {
       } else {
         clearInterval(intervalId);
         if (!this.isLoggedIn) {
-          this.$router.push('/login');  // Redirect after timeout
+          this.$router.push('/login');
         }
       }
     }, 1000);
