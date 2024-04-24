@@ -48,7 +48,21 @@
           }else {
             console.log('Message sent successfully')
             const responseData = await response.json()
-            console.log(responseData)
+            console.log(responseData.friendResponse)
+
+            this.$emit('newMessage', {
+              content: message,
+              timestamp: new Date().toISOString(),
+              username: username,
+              role: 'you'
+            })
+
+            this.$emit('newMessage', {
+              content: responseData.friendResponse,
+              timestamp: new Date().toISOString(),
+              username: username,
+              role: 'friend'
+            })
           }
         },
       },

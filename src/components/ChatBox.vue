@@ -1,8 +1,9 @@
 <template>
     <div class="chat-container">
       <!-- <p>This should be the message</p> -->
-      <p v-for="message in conversationHistory" :key="message.timestamp"> <span v-if="message.role === 'user'">You: {{ message.content }} - {{ message.timestamp }}</span>
-      <span v-else>System: {{ message.content }} - {{ message.timestamp }}</span>
+      <p v-for="message in conversationHistory" :key="message.timestamp">
+        <p v-if="message.role === 'you'">You: {{ message.content }}</p>
+        <p v-if="message.role === 'friend'">Friend: {{ message.content }}</p>
       </p>
     </div>
   </template>
