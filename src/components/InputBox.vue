@@ -39,16 +39,15 @@
             method: 'POST',
             headers: { 
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}` },
+              'Authorization': `Bearer ${token}` 
+            },
             body: JSON.stringify({ message, username }),
           });
 
           if(!response.ok){
             console.log('Error sending message:', await response.text())
           }else {
-            console.log('Message sent successfully')
             const responseData = await response.json()
-            console.log(responseData.friendResponse)
 
             this.$emit('newMessage', {
               content: message,
