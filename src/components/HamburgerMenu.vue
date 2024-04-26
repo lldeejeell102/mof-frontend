@@ -1,16 +1,19 @@
 <template>
   <div class="hamburger-menu">
-    <button @click="toggleMenu" class="hamburger-menu_button">
+    <button @click="toggleMenu" class="hamburger-menu_button" ref="darkMode">
       <div class="hamburger-menu_buttonline"></div>
       <div class="hamburger-menu_buttonline"></div>
       <div class="hamburger-menu_buttonline"></div>
     </button>
-    <label class="switch" @click="toggleTheme">
-      <input type="checkbox">
-      <span class="slider round"></span>
-    </label>
-    <nav v-if="showMenu" class="hamburger-menu_content">
-      <router-link to="/">Home</router-link>
+    <div class="darkmode-toggle">
+      <label class="switch" @click="toggleTheme">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+      <img src="../assets/darktheme.svg" width="25">
+    </div>
+    <nav v-if="showMenu" class="hamburger-menu_content" ref="darkMode">
+      <!-- <router-link to="/">Home</router-link> -->
       <!-- <router-link to="/messages">Messages</router-link> -->
       <router-link to="/login">Login</router-link>
       <router-link to="/signup">Signup</router-link>
@@ -42,6 +45,7 @@ export default {
       }else{
         this.isDark = false
         document.body.classList.toggle('dark');
+        this.$refs.darkMode.classList.toggle('hamburger-menu-dark')
       }
     },
   },
@@ -50,10 +54,13 @@ export default {
   
   <style scoped>
   
-  
+  .darkmode-toggle{
+    display:flex;
+  }
   .hamburger-menu {
     display: flex;
     flex-direction: column;
+    /* justify-content: flex-end; */
     align-items: end;
   }
   
@@ -154,4 +161,18 @@ export default {
   .slider.round:before {
     border-radius: 50%;
   }
+  
+  .hamburger-menu-dark{
+  background-color: black;
+    div{
+      color: bisque;
+      background-color: white;
+    }
+    a{
+      color: bisque; 
+    }
+
+  }
+
+
   </style>
