@@ -17,5 +17,5 @@ import HamburgerMenu from './components/HamburgerMenu.vue'
   </div>
 </template>
 
-<style scoped>
+<style>
 </style>
