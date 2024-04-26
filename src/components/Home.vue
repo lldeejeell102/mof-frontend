@@ -5,5 +5,8 @@
 <script setup>
 </script>
 
-<style>
+<style scoped>
+template{
+    font-family: text;
+}
 </style>

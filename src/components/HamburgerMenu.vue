@@ -1,13 +1,17 @@
 <template>
   <div class="hamburger-menu">
-    <button @click="toggleMenu" class="hamburger-menu__button">
-      <span class="hamburger-menu__button__line"></span>
-      <span class="hamburger-menu__button__line"></span>
-      <span class="hamburger-menu__button__line"></span>
+    <button @click="toggleMenu" class="hamburger-menu_button">
+      <div class="hamburger-menu_buttonline"></div>
+      <div class="hamburger-menu_buttonline"></div>
+      <div class="hamburger-menu_buttonline"></div>
     </button>
-    <nav v-if="showMenu" class="hamburger-menu__content">
+    <label class="switch" @click="toggleTheme">
+      <input type="checkbox">
+      <span class="slider round"></span>
+    </label>
+    <nav v-if="showMenu" class="hamburger-menu_content">
       <router-link to="/">Home</router-link>
-      <router-link to="/messages">Messages</router-link>
+      <!-- <router-link to="/messages">Messages</router-link> -->
       <router-link to="/login">Login</router-link>
       <router-link to="/signup">Signup</router-link>
       <router-link to="/logout">Logout</router-link>
@@ -22,6 +26,7 @@ export default {
   data() {
     return {
       showMenu: false,
+      isDark: false,
     };
   },
   methods: {
@@ -31,12 +36,20 @@ export default {
         this.$refs.menuContent.classList.toggle('active');
       }
     },
+    toggleTheme() {
+      if(this.isDark === false){
+        this.isDark = true
+      }else{
+        this.isDark = false
+        document.body.classList.toggle('dark');
+      }
+    },
   },
 };
 </script>
   
   <style scoped>
-  /* Add styles for hamburger menu button and content here */
+  
   
   .hamburger-menu {
     display: flex;
@@ -44,7 +57,7 @@ export default {
     align-items: end;
   }
   
-  .hamburger-menu__button {
+  .hamburger-menu_button {
     width: 40px;
     height: 40px;
     border: none;
@@ -55,14 +68,17 @@ export default {
     justify-content: space-between;
   }
   
-  .hamburger-menu__button__line {
+  .hamburger-menu_buttonline {
     width: 100%;
     height: 3px;
     background-color: black;
     margin-bottom: 5px;
   }
+  .hamburger-menu_buttonline-dark{
+  color: bisque
+  }
   
-  .hamburger-menu__content {
+  .hamburger-menu_content {
     background-color: transparent;
     display: flex;
     flex-direction: column;
@@ -72,13 +88,70 @@ export default {
     top: 100%;
     left: 0;
     width: 100%;
+    z-index: 10;
   }
   
-  .hamburger-menu__content a {
+  .hamburger-menu_content a {
     display: block;
     padding: 10px;
     text-decoration: none;
     color: black;
   }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 3.5rem;
+    height: 2rem;
+  }
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  .slider.round {
+    border-radius: 2rem;
+  }
+  .slider.round:before {
+    border-radius: 50%;
+  }
   </style>
-  
