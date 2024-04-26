@@ -109,7 +109,7 @@ export default {
     position: relative;
     display: inline-block;
     width: 3.5rem;
-    height: 2rem;
+    height: 1.5rem;
   }
   .switch input {
     opacity: 0;
@@ -132,23 +132,14 @@ export default {
   .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
+    height: 1rem;
+    width: 1rem;
     left: 4px;
     bottom: 4px;
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
   }
-
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-
   input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
@@ -163,13 +154,13 @@ export default {
   }
   
   .hamburger-menu-dark{
-  background-color: black;
+  background-color: var(--darkpurple);
     div{
-      color: bisque;
-      background-color: white;
+      color: var(--beige);
+      background-color: var(--lightmaroon);
     }
     a{
-      color: bisque; 
+      color: var(--beige);
     }
 
   }

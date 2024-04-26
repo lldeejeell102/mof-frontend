@@ -1,11 +1,176 @@
 @import url('https://fonts.googleapis.com/css2?family=Wellfleet&display=swap');
+/* /////////////////////////////////////////////////// */
+/* MAIN */
+/* /////////////////////////////////////////////////// */
+:root{
+  --darkpurple: #1D1A39;
+  --purple: #451952;
+  --maroon: #662549;
+  --lightmaroon: #AE445A;
+  --orange: #F39F5A;
+  --beige: #E8BCB9;
+}
 
 body{
   font-family: 'Wellfleet';
+  background-color: var(--lightmaroon);
+}
+
+
+/* /////////////////////////////////////////////////// */
+/* HEADER / NAV */
+/* /////////////////////////////////////////////////// */
+input:checked + .slider {
+  background-color: var(--orange);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--orange);
 }
 
 .dark{
-  background-color: black;
-  color: bisque;
+  background-color: var(--darkpurple);
+  color: var(--lightmaroon);
 }
 
+
+/* /////////////////////////////////////////////////// */
+/* LOGIN PAGE */
+/* /////////////////////////////////////////////////// */
+.scroll-container{
+  background-color: var(--orange);
+}
+.login-container{
+  display:flex;
+  margin-top: 10vh;
+  margin-bottom: 50vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1{
+    margin:auto;
+    text-align: center;
+  }
+}
+.login-title{
+  border-right: 4px solid black;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: 2s steps(13, end), blink-caret 0.5s step-end infinite alternate;
+}
+@-webkit-keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.scroll-container{
+  margin: 2rem 0;
+  width: 40vw;
+  overflow: hidden;
+  white-space: nowrap;
+  height: fit-content;
+  border-radius: 2rem;
+}
+.scroll-intro{
+  display: inline-block;
+  animation: scroll-container 80s linear infinite;
+}
+@keyframes scroll-container {
+  0% {
+    transform: translate(0,0);
+  }
+  100%{
+    transform: translate(-100%, 0);
+  }
+}
+.form{
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: 80vw;
+  height: 45vh;
+  padding: 0.5rem;
+  margin:0, 2rem;
+  border-radius: 25px;
+  background-color: var(--darkpurple);
+}
+.form-body{
+  position: absolute;
+}
+.login-title{
+  /* background-color: var(--orange); */
+  color: var(--orange);
+  padding: 0 1rem;
+  font-weight: 500;
+  font-size: 36px;
+}
+.input-area{
+  margin-top: 2rem;
+}
+.form-inp{
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 1px solid #e3e3e3;
+  line-height: 1;
+  border-radius: 8px;
+}
+.form-inp:focus{
+  border: 1px solid var(--purple);
+}
+.form-inp:first-child{
+  margin-bottom: 15px;
+}
+.form-inp input{
+  width: 100%;
+  height: 100%;
+  background: none;
+  font-size: medium;
+  color: var(--beige);
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.form-inp input:focus{
+  outline: none;
+}
+.login-btn{
+  margin-top: .75rem;
+}
+.submit-btn{
+  display: block;
+  width: 100%;
+  color: var(--orange);
+  background-color: transparent;
+  font-weight: 600;
+  margin: 0;
+  padding: .5rem;
+  outline: 1px solid var(--orange);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s
+}
+.submit-btn:hover{
+  transition: all ease-in-out 0.3s;
+  background-color: var(--beige);
+  color: var(--purple);
+  cursor: pointer;
+}
+.forgot-pwd{
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.forgot-pwd a{
+  color: var(--lightmaroon);
+  text-decoration: none;
+}
+
+
+/* /////////////////////////////////////////////////// */
+/* MOBILE CSS */
+/* /////////////////////////////////////////////////// */
+@media only screen and (max-width: 750px){
+  .scroll-container{
+    width: 80vw;
+  }
+}
