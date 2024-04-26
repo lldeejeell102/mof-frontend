@@ -4,7 +4,9 @@
 - **App Name:** MOF
 - **Description:** This app allows you to login and chat with an AI bot
 - **Github URL:** 
+https://github.com/lldeejeell102/mof-frontend
 - **Deployed Website:** 
+https://myonlyfriend.netlify.app/
 
 
 ## Route Map
