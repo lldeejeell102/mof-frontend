@@ -43,6 +43,9 @@ header {
 header h1{
   padding-left: 1rem;
   margin: 0;
+}
+header a{
+  text-decoration: none;
   color: var(--purple);
 }
 .header-end{

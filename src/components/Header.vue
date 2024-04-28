@@ -1,6 +1,6 @@
 <template>
     <header>
-        <h1>My Only Friend</h1>
+        <h1><a href="/">My Only Friend</a></h1>
         <div class="header-end">
             <Toggle class="header-toggle" :mode="mode" @toggle="$emit('toggle')"/>
             <div class="hamburger-nav-container">
