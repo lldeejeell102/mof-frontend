@@ -9,41 +9,172 @@
   --lightmaroon: #AE445A;
   --orange: #F39F5A;
   --beige: #E8BCB9;
+  --white: #F5F5F5;
 }
 
+#app{
+  width: 100vw;
+  min-height: 100vh;
+  transition: background 0.3s ease-in-out;
+  /* background: red; */
+  margin: 0;
+  padding: 0;
+}
 body{
   font-family: 'Wellfleet';
-  background-color: var(--lightmaroon);
 }
-
+.main-page {
+  background-color: var(--white);
+}
+.main-page.dark {
+  background-color: var(--maroon);
+}
 
 /* /////////////////////////////////////////////////// */
-/* HEADER / NAV */
+/* HEADER */
 /* /////////////////////////////////////////////////// */
-input:checked + .slider {
-  background-color: var(--orange);
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--beige);
+  transition: background 0.3s ease-in-out;
+}
+header h1{
+  padding-left: 1rem;
+  margin: 0;
+  color: var(--purple);
+}
+.header-end{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.dark header{
+  background: var(--darkpurple);
+}
+.dark header h1{
+  color: var(--beige)
+}
+.dark header .hamburger-menu_buttonline  {
+  background: var(--beige)
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px var(--orange);
+/* /////////////////////////////////////////////////// */
+/* NAV */
+/* /////////////////////////////////////////////////// */
+.header-toggle{
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+}
+.nav-dropdown{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.nav-dropdown a{
+  color: var(--purple);
+  text-decoration: none;
+  height: 4vh;
+  cursor: pointer;
+}
+.nav-dropdown a:hover{
+  color: var(--lightmaroon)
 }
 
-.dark{
-  background-color: var(--darkpurple);
-  color: var(--lightmaroon);
+.dark .nav-dropdown a{
+  color: var(--beige)
+}
+.dark .nav-dropdown a:hover{
+  color: var(--lightmaroon)
+}
+.toggle-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.toggle{
+  position: relative;
+  display: inline-block;
+  width: 3.5rem;
+  height: 2rem;
+}
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.toggler {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--purple);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+.toggler:before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 3px;
+  background: whitesmoke;
+}
+input:checked + .toggler {
+  background: var(--orange);
+}
+input:focus + .toggler{
+  box-shadow: 0 0 2px var(--orange);
+}
+input:checked + .toggler:before {
+  -webkit-transform: translateX(1.5rem);
+  -ms-transform: translateX(1.5rem);
+  transform: translateX(1.5rem);
+}
+.toggler.round {
+  border-radius: 34px;
+}
+.toggler.round:before {
+  border-radius: 50%;
 }
 
+/* /////////////////////////////////////////////////// */
+/* HAMBURGER MENU */
+/* /////////////////////////////////////////////////// */
+.hamburger-nav-container{
+  margin: 0.5rem 0;
+}
+.hamburger-menu{
+  margin: 0.5rem 0
+}
+.hamburger-menu_button {
+  width: 2.5rem;
+  height: 2rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hamburger-menu_buttonline {
+  width: 100%;
+  height: .25rem;
+  background-color: black;
+}
 
 /* /////////////////////////////////////////////////// */
 /* LOGIN PAGE */
 /* /////////////////////////////////////////////////// */
-.scroll-container{
-  background-color: var(--orange);
-}
 .login-container{
   display:flex;
   margin-top: 10vh;
-  margin-bottom: 50vh;
+  margin-bottom: 10vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -63,44 +194,26 @@ input:focus + .slider {
     border-color: transparent;
   }
 }
-
-.scroll-container{
-  margin: 2rem 0;
-  width: 40vw;
-  overflow: hidden;
-  white-space: nowrap;
-  height: fit-content;
-  border-radius: 2rem;
-}
-.scroll-intro{
-  display: inline-block;
-  animation: scroll-container 80s linear infinite;
-}
-@keyframes scroll-container {
-  0% {
-    transform: translate(0,0);
-  }
-  100%{
-    transform: translate(-100%, 0);
-  }
-}
 .form{
   display: grid;
   place-items: center;
   position: relative;
   width: 80vw;
-  height: 45vh;
+  height: 75vh;
   padding: 0.5rem;
   margin:0, 2rem;
   border-radius: 25px;
-  background-color: var(--darkpurple);
+  background-color: var(--beige);
 }
+
+/* /////////////////////////////////////////////////// */
+
+/* /////////////////////////////////////////////////// */
 .form-body{
   position: absolute;
 }
 .login-title{
-  /* background-color: var(--orange); */
-  color: var(--orange);
+  color: var(--purple);
   padding: 0 1rem;
   font-weight: 500;
   font-size: 36px;
@@ -111,22 +224,21 @@ input:focus + .slider {
 .form-inp{
   padding: 1rem 2rem;
   background: transparent;
-  border: 1px solid #e3e3e3;
+  border: 1px solid var(--darkpurple);
   line-height: 1;
   border-radius: 8px;
-}
-.form-inp:focus{
-  border: 1px solid var(--purple);
-}
-.form-inp:first-child{
   margin-bottom: 15px;
 }
+.form-inp:focus{
+  border: 1px solid var(--darkpurple);
+}
+
 .form-inp input{
   width: 100%;
   height: 100%;
   background: none;
   font-size: medium;
-  color: var(--beige);
+  color: var(--darkpurple);
   border: none;
   padding: 0;
   margin: 0;
@@ -140,7 +252,7 @@ input:focus + .slider {
 .submit-btn{
   display: block;
   width: 100%;
-  color: var(--orange);
+  color: var(--darkpurple);
   background-color: transparent;
   font-weight: 600;
   margin: 0;
@@ -152,18 +264,74 @@ input:focus + .slider {
 }
 .submit-btn:hover{
   transition: all ease-in-out 0.3s;
-  background-color: var(--beige);
-  color: var(--purple);
+  background-color: var(--darkpurple);
+  color: var(--orange);
   cursor: pointer;
 }
 .forgot-pwd{
   text-align: center;
   margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .forgot-pwd a{
   color: var(--lightmaroon);
   text-decoration: none;
 }
+
+
+.scroll-container{
+  background-color: var(--beige);
+  margin: 2rem 0;
+  width: 40vw;
+  overflow: hidden;
+  white-space: nowrap;
+  height: fit-content;
+  border-radius: 2rem;
+}
+.scroll-intro{
+  display: inline-block;
+  animation: scroll-container 80s linear infinite;
+  color: var(--purple)
+}
+@keyframes scroll-container {
+  0% {
+    transform: translate(0,0);
+  }
+  100%{
+    transform: translate(-100%, 0);
+  }
+}
+/* /////////////////////////////////////////////////// */
+/* DARK MODE LOGIN */
+/* /////////////////////////////////////////////////// */
+.dark div .form {
+  background: var(--darkpurple);
+}
+.dark div .form .form-body .login-title{
+  color: var(--beige);
+}
+.dark div .form .login-btn .submit-btn{
+  color: var(--maroon);
+  background-color: var(--orange);
+  outline: 1px solid var(--darkpurple);
+}
+.dark div .form .login-btn .submit-btn:hover{
+  color: var(--orange);
+  background-color: var(--lightmaroon);
+}
+.dark div .scroll-container{
+  background-color: var(--maroon);
+}
+.dark div .scroll-container .scroll-intro{
+  color: var(--beige)
+}
+.dark .form-inp{
+  border: 1px solid var(--beige);
+}
+.dark .form-inp input{
+  color: var(--beige);
+}
+
 
 
 /* /////////////////////////////////////////////////// */
@@ -173,4 +341,20 @@ input:focus + .slider {
   .scroll-container{
     width: 80vw;
   }
+  .nav-dropdown a{
+    height: 2.5vh;
+  }
+  .form{
+    height: 50vh;
+    
+  }
+  .form-body{
+    min-height: fit-content;
+    min-width: fit-content;
+  }
+  .login-title, .input-area, .login-btn, .forgot-pwd{
+    min-height: fit-content;
+    min-width: fit-content;
+  }
+
 }

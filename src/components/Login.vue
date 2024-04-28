@@ -1,24 +1,32 @@
 <template>
     <div class="login-container">
-      <form @submit.prevent="login" class="form">
+      <form @submit.prevent="login" class="form" :checked="(mode === 'dark') ? 'checked' : false">
+        
         <div class="form-body">
           <h1 class="login-title">Welcome to MOF</h1>
           <hr></hr>
+        
           <div class="input-area">
+        
             <div class="form-inp">
               <input type="email" v-model="email" placeholder="Email" name="email" required class="login-email"/>
             </div>
+        
             <div class="form-inp">
               <input type="password" v-model="password" placeholder="Password" name="password" required />
             </div>
+        
           </div>
+          
           <div class="login-btn">
             <button class="submit-btn" type="submit">Login</button>
           </div>
+          
           <div class="forgot-pwd">
             <a href="/">Forgot password</a>
           </div>
         </div>
+      
       </form>
       <div class="scroll-container">
           <p class="scroll-intro">Chat with your friend. Ask MOF simple questions. Play Truth or Dare. Invite MOF to a party.</p>
@@ -34,6 +42,7 @@
         password: '',
       }
     },
+    props: ['mode'],
     methods: {
       async login() {
         const email = this.email;
@@ -70,9 +79,4 @@
 </script>
 
 <style>
-
-
-
-
-
 </style>
