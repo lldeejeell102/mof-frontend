@@ -13,10 +13,9 @@
 }
 
 #app{
-  width: 100vw;
+  width: 99vw;
   min-height: 100vh;
   transition: background 0.3s ease-in-out;
-  /* background: red; */
   margin: 0;
   padding: 0;
 }
@@ -57,7 +56,7 @@ header a{
 .dark header{
   background: var(--darkpurple);
 }
-.dark header h1{
+.dark header a{
   color: var(--beige)
 }
 .dark header .hamburger-menu_buttonline  {
@@ -75,6 +74,7 @@ header a{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  padding-right: 0.75rem;
 }
 .nav-dropdown a{
   color: var(--purple);
@@ -145,6 +145,35 @@ input:checked + .toggler:before {
 .toggler.round:before {
   border-radius: 50%;
 }
+.logout-btn{
+  color: var(--darkpurple);
+  background-color: var(--white);
+  font-weight: 600;
+  margin: 0;
+  padding: .5rem;
+  outline: 1px solid var(--orange);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s
+}
+.dark .logout-btn{
+  color: var(--white);
+  background-color: var(--purple);
+}
+.logout-btn:hover{
+  background-color: var(--purple);
+  outline: 1px solid var(--maroon);
+  a{
+    color:var(--white);
+  }
+}
+.dark .logout-btn:hover{
+  background-color: var(--lightmaroon);
+  outline: 1px solid rgb(93, 27, 156);
+  a{
+    color:var(--white);
+  }
+}
 
 /* /////////////////////////////////////////////////// */
 /* HAMBURGER MENU */
@@ -153,7 +182,8 @@ input:checked + .toggler:before {
   margin: 0.5rem 0;
 }
 .hamburger-menu{
-  margin: 0.5rem 0
+  margin: 0.5rem 0;
+  margin-right: 0.5rem;
 }
 .hamburger-menu_button {
   width: 2.5rem;
@@ -208,10 +238,6 @@ input:checked + .toggler:before {
   border-radius: 25px;
   background-color: var(--beige);
 }
-
-/* /////////////////////////////////////////////////// */
-
-/* /////////////////////////////////////////////////// */
 .form-body{
   position: absolute;
 }
@@ -235,7 +261,6 @@ input:checked + .toggler:before {
 .form-inp:focus{
   border: 1px solid var(--darkpurple);
 }
-
 .form-inp input{
   width: 100%;
   height: 100%;
@@ -335,7 +360,103 @@ input:checked + .toggler:before {
   color: var(--beige);
 }
 
+/* /////////////////////////////////////////////////// */
+/* LOGOUT PAGE */
+/* /////////////////////////////////////////////////// */
+.logout-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--beige);
+  text-align: center;
+  padding-bottom: 1rem;
 
+}
+.logout-text{
+  color: var(--darkpurple);
+}
+.dark .logout-container {
+  background: var(--darkpurple);
+}
+.dark .logout-text{
+  color: var(--beige);
+}
+.redirect-btn{
+  width: 20%;
+  height: 5vh;
+  margin: 0.25rem 0;
+  font-weight: 600;
+  outline: 1px solid var(--orange);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all ease-in-out 0.4s;
+  background-color: transparent;
+  a {
+    text-decoration: none;
+    color: var(--darkpurple);
+  }
+}
+.redirect-btn:hover{
+  transition: all ease-in-out 0.4s;
+  background-color: var(--darkpurple);
+  cursor: pointer;
+  a {
+  color: var(--orange);
+  }
+}
+.dark .redirect-btn{
+  background-color: var(--orange);
+  outline: 1px solid var(--darkpurple);
+  a {
+  color: var(--maroon);
+  }
+}
+.dark .redirect-btn:hover{
+  background-color: var(--lightmaroon);
+  a {
+  color: var(--orange);
+  }
+}
+/* /////////////////////////////////////////////////// */
+/* CHATBOX */
+/* /////////////////////////////////////////////////// */
+.main-page div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+.chat-box{
+  background: whitesmoke;
+  padding: 1rem;
+  width: 95%;
+  min-height: 10rem;
+}
+.chat-container{
+  width: 100%;
+  min-height: 250px;
+  border: 3px dotted blue;
+}
+
+
+/* /////////////////////////////////////////////////// */
+/* INPUTBOX CSS */
+/* /////////////////////////////////////////////////// */
+.input-container{
+  width: 100%;
+  min-height: 150px;
+  padding: 1rem;
+  border: 3px dotted green;
+}
+
+
+/* /////////////////////////////////////////////////// */
+/* MYFRIEND CSS */
+/* /////////////////////////////////////////////////// */
+.friend-box{
+  border: 3px dotted red;
+}
 
 /* /////////////////////////////////////////////////// */
 /* MOBILE CSS */

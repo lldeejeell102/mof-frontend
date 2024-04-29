@@ -14,8 +14,8 @@
                 <nav class="nav-dropdown" v-if="showMenu">
                     <router-link to="/login">Login</router-link>
                     <router-link to="/signup">Signup</router-link>
-                    <router-link to="/logout">Logout</router-link>
                     <router-link to="/chat">My Friend</router-link>
+                    <butto class="logout-btn"><router-link to="/logout">Logout</router-link></butto>
                 </nav>
             </div>
         </div>

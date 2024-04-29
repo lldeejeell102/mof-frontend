@@ -1,10 +1,11 @@
 <template>
-    <div class="chat-container">
-      <!-- <p>This should be the message</p> -->
-      <p v-for="message in conversationHistory" :key="message.timestamp">
-        <p v-if="message.role === 'you'">You: {{ message.content }}</p>
-        <p v-if="message.role === 'friend'">Friend: {{ message.content }}</p>
-      </p>
+    <div class="chat-box">
+      <div class="chat-container">
+        <p v-for="message in conversationHistory" :key="message.timestamp" class="">
+          <p v-if="message.role === 'you'">You: {{ message.content }}</p>
+          <p v-if="message.role === 'friend'">Friend: {{ message.content }}</p>
+        </p>
+      </div>
     </div>
   </template>
   
@@ -26,20 +27,4 @@
     </script>
     
     <style scoped>
-    .chat-container {
-      border: 1px solid #ccc;
-      padding: 10px;
-      overflow-y: auto;
-      max-height: 300px;
-    }
-    
-    .chat-container ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .chat-container li {
-      margin-bottom: 5px;
-    }
     </style>

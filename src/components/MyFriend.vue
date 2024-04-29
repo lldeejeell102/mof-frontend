@@ -1,5 +1,5 @@
 <template>
-    <div v-if="isLoggedIn">
+    <div class="friend-box" v-if="isLoggedIn">
       <ChatBox :conversationHistory="messages"/>
       <InputBox @newMessage="handleNewMessage"/>
     </div>
