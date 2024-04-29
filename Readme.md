@@ -12,11 +12,9 @@ https://myonlyfriend.netlify.app/
 ## Route Map
 | Route Name | Endpoint | Method | Description |
 | -----------| ---------| -------| ------------|
-| Index | /welcome | GET | Renders a welcome page |
-| Login | /mof/login | GET | Shows a login form for the user access their friend |
-| Signup | /mof/signup | POST | Creates a user |
-| Logout | /mof/logout | GET | Logs the user out |
-| History | /mof/logs | GET | Shows the all the inputs the user has made |
+| Login | /login | GET | Shows a login form for the user access their friend |
+| Signup | /signup | POST | Creates a user |
+| Logout | /logout | GET | Logs the user out |
 
 
 ## Vue Component Hierarchy
