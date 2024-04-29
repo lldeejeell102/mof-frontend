@@ -22,6 +22,7 @@
 }
 body{
   font-family: 'Wellfleet';
+  margin: 1rem;
 }
 .main-page {
   background-color: var(--white);
