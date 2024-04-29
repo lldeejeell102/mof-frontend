@@ -1,4 +1,5 @@
 <template>
+    <div class="spacer"></div>
     <div class="login-container">
       <form @submit.prevent="login" class="form" :checked="(mode === 'dark') ? 'checked' : false">
         

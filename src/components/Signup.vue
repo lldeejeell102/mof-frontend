@@ -1,4 +1,5 @@
 <template>
+    <div class="spacer"></div>
     <div class="login-container">
       <form @submit.prevent="handleSubmit" class="form">
         <div class="form-body">

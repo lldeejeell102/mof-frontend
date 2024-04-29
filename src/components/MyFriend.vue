@@ -1,4 +1,5 @@
 <template>
+    <div class="spacer"></div>
     <div class="friend-box" v-if="isLoggedIn">
       <ChatBox :conversationHistory="messages"/>
       <InputBox @newMessage="handleNewMessage"/>
@@ -6,6 +7,7 @@
     <div v-else>
       <p>You're not logged in! Redirecting in... {{ countdown }}</p>
     </div>
+    <div class="spacer"></div>
 </template>
 
 <script>

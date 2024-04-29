@@ -10,10 +10,11 @@
   --orange: #F39F5A;
   --beige: #E8BCB9;
   --white: #F5F5F5;
+  --teal: #008080;
 }
 
 #app{
-  width: 99vw;
+  /* width: 99vw; */
   min-height: 100vh;
   transition: background 0.3s ease-in-out;
   margin: 0;
@@ -24,8 +25,9 @@ body{
 }
 .main-page {
   background-color: var(--white);
+  height: 100vh;
 }
-.main-page.dark {
+.dark .main-page {
   background-color: var(--maroon);
 }
 
@@ -204,10 +206,17 @@ input:checked + .toggler:before {
 /* /////////////////////////////////////////////////// */
 /* LOGIN PAGE */
 /* /////////////////////////////////////////////////// */
+.spacer{
+  height: 10vh;
+  background-color: white;
+}
+.dark .spacer {
+  background-color: var(--maroon);
+}
 .login-container{
   display:flex;
-  margin-top: 10vh;
-  margin-bottom: 10vh;
+  padding-bottom: 2rem;
+  background-color: white;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -215,6 +224,9 @@ input:checked + .toggler:before {
     margin:auto;
     text-align: center;
   }
+}
+.dark .login-container {
+  background-color: var(--maroon);
 }
 .login-title{
   border-right: 4px solid black;
@@ -309,7 +321,7 @@ input:checked + .toggler:before {
 
 .scroll-container{
   background-color: var(--beige);
-  margin: 2rem 0;
+  margin-top: 2rem;
   width: 40vw;
   overflow: hidden;
   white-space: nowrap;
@@ -348,7 +360,7 @@ input:checked + .toggler:before {
   background-color: var(--lightmaroon);
 }
 .dark div .scroll-container{
-  background-color: var(--maroon);
+  background-color: var(--lightmaroon);
 }
 .dark div .scroll-container .scroll-intro{
   color: var(--beige)
@@ -363,6 +375,10 @@ input:checked + .toggler:before {
 /* /////////////////////////////////////////////////// */
 /* LOGOUT PAGE */
 /* /////////////////////////////////////////////////// */
+.logout-page{
+  height: 25vh;
+  background-color: var(--beige);
+}
 .logout-container{
   display: flex;
   flex-direction: column;
@@ -370,6 +386,7 @@ input:checked + .toggler:before {
   background: var(--beige);
   text-align: center;
   padding-bottom: 1rem;
+  
 
 }
 .logout-text{
@@ -417,45 +434,116 @@ input:checked + .toggler:before {
   color: var(--orange);
   }
 }
-/* /////////////////////////////////////////////////// */
-/* CHATBOX */
-/* /////////////////////////////////////////////////// */
-.main-page div{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 100%;
-}
-.chat-box{
-  background: whitesmoke;
-  padding: 1rem;
-  width: 95%;
-  min-height: 10rem;
-}
-.chat-container{
-  width: 100%;
-  min-height: 250px;
-  border: 3px dotted blue;
-}
-
-
-/* /////////////////////////////////////////////////// */
-/* INPUTBOX CSS */
-/* /////////////////////////////////////////////////// */
-.input-container{
-  width: 100%;
-  min-height: 150px;
-  padding: 1rem;
-  border: 3px dotted green;
-}
-
 
 /* /////////////////////////////////////////////////// */
 /* MYFRIEND CSS */
 /* /////////////////////////////////////////////////// */
 .friend-box{
-  border: 3px dotted red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+}
+.dark .friend-box {
+  background-color: var(--maroon)
+}
+
+/* /////////////////////////////////////////////////// */
+/* CHATBOX */
+/* /////////////////////////////////////////////////// */
+.chat-box{
+  background: whitesmoke;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  min-height: 10rem;
+  background-color: white;
+}
+.dark .chat-box{
+  background-color: var(--maroon);
+}
+.chat-container{
+  width: 800px;
+  min-height: 250px;
+  border: 2px solid slategray;
+  border-radius: 25px;
+  background-color: var(--white);
+}
+.dark .chat-container {
+  background-color: var(--lightmaroon);
+  border: 2px solid var(--orange)
+}
+.chat-display-container{
+  margin-left: 1rem;
+}
+.chat-display-you{
+  margin: 0;
+  padding: 0;
+  color: var(--maroon);
+}
+.dark .chat-display-you {
+  color: var(--beige)
+}
+.chat-display-friend{
+  margin: 0;
+  padding: 0;
+  color: var(--teal);
+}
+.dark .chat-display-friend {
+  color: var(--white);
+}
+
+/* /////////////////////////////////////////////////// */
+/* INPUTBOX CSS */
+/* /////////////////////////////////////////////////// */
+.input-container{
+  width: 800px;
+  margin-top: 0;
+  min-height: 50px;
+  border: 2px solid var(--teal);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.dark .input-container{
+  background-color: var(--lightmaroon);
+  border: 2px solid var(--beige)
+}
+.input-text{
+  width: 100%;
+  height: 5rem;
+  background: transparent;
+  border: none;
+  margin-left: 1rem;
+  color: var(--maroon);
+  font-size: large;
+}
+.dark .input-text {
+  color: var(--beige)
+}
+.dark .input-text::placeholder{
+  color: var(--beige)
+}
+.input-text:focus{
+  outline: none;
+  color: var(--maroon);
+}
+.dark .input-text:focus{
+  color: var(--beige)
+}
+.input-btn {
+  margin-right: 1rem;
+  width: 8rem;
+  border-radius: 25px;
+  cursor: pointer;
+  background-color: var(--orange);
+  padding: 10px 20px;
+  border: none;
+  color: black;
 }
 
 /* /////////////////////////////////////////////////// */
@@ -480,5 +568,10 @@ input:checked + .toggler:before {
     min-height: fit-content;
     min-width: fit-content;
   }
-
+  .chat-container{
+    width: 300px;
+  }
+  .input-container{
+    width: 300px;
+  }
 }
