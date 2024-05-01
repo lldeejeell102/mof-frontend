@@ -11,6 +11,7 @@
   --beige: #E8BCB9;
   --white: #F5F5F5;
   --teal: #008080;
+  --gray: #4b4c4d;
 }
 
 #app{
@@ -554,6 +555,96 @@ input:checked + .toggler:before {
   padding: 10px 20px;
   border: none;
   color: black;
+}
+
+/* /////////////////////////////////////////////////// */
+/* FOOTER CSS */
+/* /////////////////////////////////////////////////// */
+footer {
+  background-color: var(--white);
+}
+footer hr{
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+.dark footer {
+  background-color: var(--maroon);
+}
+
+.list-inline {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding:0;
+  list-style:none;
+  text-align:center;
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:0;
+}
+
+.list-inline-item {
+  padding:0 10px;
+}
+
+.list-inline a {
+  color:var(--gray);
+  text-decoration:none;
+  opacity:0.8;
+}
+.dark .list-inline a {
+  color: var(--teal)
+}
+
+.list-inline a:hover {
+  opacity:1;
+}
+
+.social {
+  text-align:center;
+  padding: 15px;
+}
+.dark .social {
+  display: none;
+}
+.social-negative {
+  text-align:center;
+  padding: 15px;
+  visibility: hidden;
+}
+.dark .social-negative {
+  visibility: visible;
+}
+.social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid #ccc;
+  margin:0 8px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.social > a:hover {
+  opacity:0.9;
+}
+
+.copyright {
+  margin-top:15px;
+  text-align:center;
+  font-size:13px;
+  color:var(--gray);
+  margin-bottom:0;
+  opacity: 0.5;
+}
+.dark .copyright {
+  color: var(--teal);
+  opacity: 0.8;
 }
 
 /* /////////////////////////////////////////////////// */

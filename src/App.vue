@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 // import HamburgerMenu from './components/HamburgerMenu.vue'
 import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
 
   export default {
     name: "App",
@@ -11,7 +12,8 @@ import Header from './components/Header.vue'
       }
     },
     components: {
-      Header
+      Header,
+      Footer,
     },
     methods: {
       toggle () {
@@ -29,6 +31,7 @@ import Header from './components/Header.vue'
   <div class="main-page" :class="mode">
     <Header :mode="mode" @toggle="toggle" />
     <RouterView :mode="mode" @toggle="toggle" />
+    <Footer :mode="mode" @toggle="toggle" />
   </div>
 </template>
 
