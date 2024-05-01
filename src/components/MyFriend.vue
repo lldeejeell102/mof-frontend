@@ -4,8 +4,8 @@
       <ChatBox :conversationHistory="messages"/>
       <InputBox @newMessage="handleNewMessage"/>
     </div>
-    <div v-else>
-      <p>You're not logged in! Redirecting in... {{ countdown }}</p>
+    <div v-else class="nli-warning">
+      <p class="nli">You're not logged in! Redirecting in...  {{ countdown }}</p>
     </div>
     <div class="spacer"></div>
 </template>

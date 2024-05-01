@@ -385,6 +385,7 @@ input:checked + .toggler:before {
   height: 25vh;
   background-color: var(--beige);
   box-shadow: -.5rem -.5rem var(--purple);
+  margin-bottom: 2rem;
 }
 .logout-container{
   display: flex;
@@ -393,8 +394,6 @@ input:checked + .toggler:before {
   background: var(--beige);
   text-align: center;
   padding-bottom: 1rem;
-  
-
 }
 .logout-text{
   color: var(--darkpurple);
@@ -445,6 +444,16 @@ input:checked + .toggler:before {
 /* /////////////////////////////////////////////////// */
 /* MYFRIEND CSS */
 /* /////////////////////////////////////////////////// */
+.nli-warning{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.nli{
+  font-size: x-large;
+  font-weight: bolder;
+}
 .friend-box{
   display: flex;
   flex-direction: column;
@@ -569,7 +578,7 @@ footer hr{
   border: none;
 }
 .dark footer {
-  background-color: var(--maroon);
+  background-color: var(--darkpurple);
 }
 
 .list-inline {
@@ -611,28 +620,29 @@ footer hr{
 .social-negative {
   text-align:center;
   padding: 15px;
-  visibility: hidden;
+  display: none;
 }
 .dark .social-negative {
   visibility: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.social > a {
-  font-size:24px;
-  width:40px;
-  height:40px;
-  line-height:40px;
-  display:inline-block;
-  text-align:center;
-  border-radius:50%;
-  border:1px solid #ccc;
-  margin:0 8px;
-  color:inherit;
+.social a {
   opacity:0.75;
+  margin: 0 8px;
 }
-
-.social > a:hover {
+.social a:hover {
   opacity:0.9;
 }
+.social-negative a {
+  opacity:0.75;
+  margin: 0 8px;
+}
+.social-negative a:hover {
+  opacity:0.9;
+}
+
 
 .copyright {
   margin-top:15px;
