@@ -6,7 +6,7 @@
   </template>
   
   <script>
-  console.log(localStorage)
+  // console.log(localStorage)
 
   export default {
     props: [],

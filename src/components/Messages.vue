@@ -1,11 +1,8 @@
 <template>
-    <div class="messages-container">
-        <!-- <h1>Messages</h1> -->
-        <!-- <div v-if="isLoggedIn"> -->
-            <!-- <h1>hi</h1> -->
-            <!-- <button @click="fetchedMessages">SEND ITTTT</button> -->
-            <select size="10" v-model="selected" @change="getSelectedMessage(selected)">
-                <option v-for="message in messages" :key="message._id" :value="message"> {{ message.message }}
+    <div class="messages-box">
+        <div v-if="isLoggedIn" class="messages-container">
+            <select size="10" v-model="selected" @change="getSelectedMessage(selected)" class="messages-display-container">
+                <option v-for="message in messages" :key="message._id" :value="message" class="messages-display"> {{ message.message }}
                 </option>
             </select>
             <input 
@@ -13,17 +10,18 @@
             v-model="selectedMessage"
             placeholder="updated message"
             />
-            <button @click="updateMessage(selected)">UPDATE</button>
-            <button @click="deleteMessage(selected)">DELETE</button>
-        <!-- </div> -->
-        <!-- <div v-else> -->
-            <!-- <p>You're not logged in! Redirecting in... {{ countdown }}</p> -->
-        <!-- </div> -->
+            <CloudArrowUpIcon class="icon-btn" @click="updateMessage(selected)"></CloudArrowUpIcon>
+            <TrashIcon class="icon-btn" @click="deleteMessage(selected)"></TrashIcon>
+        </div>
+        <div v-else>
+            <p>You're not logged in! Redirecting in... {{ countdown }}</p>
+        </div>
     </div>
 </template>
   
     
 <script>
+    import { TrashIcon, CloudArrowUpIcon } from '@heroicons/vue/24/outline'
     export default {
         mounted() {
             const token = localStorage.getItem('jwt_token')
@@ -47,7 +45,10 @@
         beforeDestroy() {
             clearInterval(this.intervalId)
         },
-        
+        components: {
+            TrashIcon,
+            CloudArrowUpIcon,
+        },
         data() {
             return {
                 messages: null,
