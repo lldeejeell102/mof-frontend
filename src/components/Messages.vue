@@ -1,13 +1,24 @@
 <template>
     <div class="messages-container">
-        <h1>Messages</h1>
-        <div v-if="isLoggedIn">
-            <h1>hi</h1>
-            <button @click="fetchedMessages">SEND ITTTT</button>
-        </div>
-        <div v-else>
-            <p>You're not logged in! Redirecting in... {{ countdown }}</p>
-        </div>
+        <!-- <h1>Messages</h1> -->
+        <!-- <div v-if="isLoggedIn"> -->
+            <!-- <h1>hi</h1> -->
+            <!-- <button @click="fetchedMessages">SEND ITTTT</button> -->
+            <select size="10" v-model="selected" @change="getSelectedMessage(selected)">
+                <option v-for="message in messages" :key="message._id" :value="message"> {{ message.message }}
+                </option>
+            </select>
+            <input 
+            type="text" 
+            v-model="selectedMessage"
+            placeholder="updated message"
+            />
+            <button @click="updateMessage(selected)">UPDATE</button>
+            <button @click="deleteMessage(selected)">DELETE</button>
+        <!-- </div> -->
+        <!-- <div v-else> -->
+            <!-- <p>You're not logged in! Redirecting in... {{ countdown }}</p> -->
+        <!-- </div> -->
     </div>
 </template>
   
@@ -29,6 +40,8 @@
             }
             }, 1000);
             this.$emit('component-destroy');
+
+            const selectElement = this.$refs.selectElement
         },
         
         beforeDestroy() {
@@ -37,36 +50,91 @@
         
         data() {
             return {
-                messages: [],
+                messages: null,
                 countdown: 5,
+                selected: null,
+                updatedMessage: '',
+                selectedMessage: '',
             }
         },
 
-        async getAllMessages() {
-            const username = localStorage.getItem('username')
-            const databaseURL = import.meta.env.VITE_APP_DATABASE_URL
-            const token = localStorage.getItem('jwt_token')
-
-            const response = await fetch(`${databaseURL}/mof`, {
-                method: 'GET',
-                headers: { 
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` 
-                },
-                body: JSON.stringify({ username }),
-            });
-
-            if(!response.ok){
-                throw new Error ('failed to get messages')
-            }
-            const data = await response.json();
-            console.log(data)
-            return data
+        created() {
+            this.getAllMessages()
         },
   
         methods: {
             handleNewMessage(messageData) {
             this.messages.push(messageData)
+            },
+
+            getSelectedMessage(selected){
+                this.selectedMessage = selected.message
+                console.log(this.selectedMessage)
+            },
+
+            async getAllMessages() {
+                const username = localStorage.getItem('username')
+                const databaseURL = import.meta.env.VITE_APP_DATABASE_URL
+                const token = localStorage.getItem('jwt_token')
+                // console.log({token, username, databaseURL})
+
+                const response = await fetch(`${databaseURL}/mof?username=${username}`, {
+                    method: 'GET',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}` 
+                    },
+                });
+
+                if(!response.ok){
+                    throw new Error ('failed to get messages')
+                }
+                const data = await response.json();
+                this.messages = await data.message.reverse()
+            },
+//////////////////////////////////////////////////////////////////////////////////////
+            async updateMessage(selected) {
+                const updateMessage = this.selectedMessage
+                const id = selected._id
+                const databaseURL = import.meta.env.VITE_APP_DATABASE_URL
+                const token = localStorage.getItem('jwt_token')
+                // console.log({updateMessage, id, databaseURL, token})
+
+
+                const response = await fetch(`${databaseURL}/mof/${id}`, {
+                    method: 'PUT',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}` 
+                    },
+                    body: JSON.stringify({ updateMessage }),
+                });
+
+                if(!response.ok){
+                    throw new Error ('failed to get messages')
+                }
+                console.log('updated message')
+                window.location.reload()
+            },
+
+//////////////////////////////////////////////////////////////////////////
+            async deleteMessage(messages) {
+                const id = messages._id
+                const databaseURL = import.meta.env.VITE_APP_DATABASE_URL
+                const token = localStorage.getItem('jwt_token')
+
+                const response = await fetch(`${databaseURL}/mof/${id}`, {
+                    method: 'DELETE',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}` 
+                    },
+                });
+                if(!response.ok){
+                    throw new Error ('failed to get messages')
+                }
+                console.log("deleted message")
+                window.location.reload()
             },
         },
 
@@ -81,6 +149,7 @@
                 }
             }
         },
+
     }
 </script>
     
