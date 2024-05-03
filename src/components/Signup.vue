@@ -26,13 +26,15 @@
   
   <script>
   import signupForm from '../utils/signupForm.js';
+  import { useRouter } from 'vue-router'
   
   export default {
     setup() {
+      const router = useRouter()
       const { email, password, username, submitSignup } = signupForm();
-  
-      const handleSubmit = () => {
-        submitSignup();
+      const handleSubmit = async () => {
+        await submitSignup();
+        router.push({ path: '/login' })
       };
   
       return {

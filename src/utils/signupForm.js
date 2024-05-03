@@ -26,13 +26,11 @@ export default function() {
         if (!response.ok) {
           throw new Error(`Signup failed with status: ${response.status}`);
         }
-
         const data = await response.json();
         console.log('Signup response:', data);
-        // Handle successful signup (e.g., display success message, redirect)
+        // this.$router.push({ path:'/login'})
       } catch (error) {
         console.error('Error during signup:', error);
-        // Handle signup error (e.g., display error message)
       }
     };
 
