@@ -14,7 +14,11 @@ https://myonlyfriend.netlify.app/
 | -----------| ---------| -------| ------------|
 | Login | /login | GET | Shows a login form for the user access their friend |
 | Signup | /signup | POST | Creates a user |
-| Logout | /logout | GET | Logs the user out |
+| Logout | /logout | DELETE | Logs the user out |
+| My Friend | /chat | GET | Shows a chatbox and inputbox |
+| Messages | /history | GET | All submitted messages by user |
+| Messages | /history | PUT | edits a message submitted by user |
+
 
 
 ## Vue Component Hierarchy
