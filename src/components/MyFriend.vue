@@ -1,5 +1,6 @@
 <template>
     <div class="spacer"></div>
+    <h1 class="title">MOF</h1>
     <div class="friend-box" v-if="isLoggedIn">
       <ChatBox :conversationHistory="messages"/>
       <InputBox @newMessage="handleNewMessage"/>

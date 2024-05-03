@@ -444,6 +444,15 @@ input:checked + .toggler:before {
 /* /////////////////////////////////////////////////// */
 /* MYFRIEND CSS */
 /* /////////////////////////////////////////////////// */
+.title{
+  background: white;
+  margin:0;
+  padding-left: 1rem;
+}
+.dark .title{
+  background: var(--maroon);
+  color: var(--beige)
+}
 .nli-warning{
   display: flex;
   justify-content: center;
@@ -660,14 +669,115 @@ footer hr{
 /* /////////////////////////////////////////////////// */
 /* HISTORY PAGE */
 /* /////////////////////////////////////////////////// */
-.icon-btn{
-  height: 1.5rem;
-  width: 1.5rem;
-  background: white;
-  border-radius: 8px;
-  border: 2px solid red;
+.messages-box{
+  background: whitesmoke;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  min-height: 10rem;
+  background-color: white;
+}
+.dark .messages-box{
+  background-color: var(--maroon);
+}
+.messages-container{
+  width: 800px;
+  min-height: 250px;
+  border: 2px solid slategray;
+  border-radius: 25px;
+  background-color: var(--white);
+  box-shadow: .5rem .5rem var(--purple);
+}
+.dark .messages-container {
+  background-color: var(--lightmaroon);
+  border: 2px solid var(--orange)
+}
+.messages-display-container{
+  margin: 1rem 0;
+  margin-left: 1rem;
+  min-width: 95%;
+  border: none;
+  background: transparent;
+}
+.messages-display-container:focus{
+  outline: none;
+}
+.messages-display{
+  padding: 0;
+  color: var(--maroon);
+}
+.dark .messages-display {
+  color: var(--beige)
+}
+.messages-display:checked{
+  background: var(--beige)
+}
+.dark .messages-display:checked{
+  background: var(--purple)
 }
 
+.input-btn-container{
+  display: flex;
+  padding-left: 1rem;
+  width: 100%;
+}
+.messages-input{
+  /* 800px */
+  width: 640px;
+  margin-top: 0;
+  min-height: 50px;
+  border: 2px solid var(--teal);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  box-shadow: .15rem .15rem var(--purple);
+  padding-left: 1rem;
+  color: var(--purple);
+}
+.dark .messages-input{
+  background-color: var(--lightmaroon);
+  border: 2px solid var(--beige);
+  color: var(--beige)
+}
+.dark .messages-input::placeholder{
+  color: var(--beige)
+}
+.messages-input:focus{
+  outline: none;
+  color: var(--maroon);
+}
+.dark .messages-input:focus{
+  color: var(--beige)
+}
+.icon-btn-container{
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+.icon-btn{
+  height: 2rem;
+  width: 2rem;
+  background: transparent;
+  border-radius: 8px;
+  border: 2px solid var(--darkpurple);
+  margin-bottom: 1rem;
+  margin-right: .5rem;
+}
+.icon-btn:hover{
+  cursor: pointer;
+  transform: scale(1.2)
+}
+.dark .icon-btn{
+  background: var(--beige)
+}
+.trashicon:hover{
+  background: #c70000;
+}
+.cloudicon:hover{
+  background: #00c7c7;
+}
 
 /* /////////////////////////////////////////////////// */
 /* MOBILE CSS */

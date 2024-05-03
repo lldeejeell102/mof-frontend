@@ -15,8 +15,8 @@
                     <router-link to="/login">Login</router-link>
                     <router-link to="/signup">Signup</router-link>
                     <router-link to="/chat">My Friend</router-link>
-                    <button class="logout-btn"><router-link to="/logout">Logout</router-link></button>
                     <router-link to="/history">Messages</router-link>
+                    <button class="logout-btn"><router-link to="/logout">Logout</router-link></button>
                 </nav>
             </div>
         </div>

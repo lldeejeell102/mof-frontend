@@ -1,17 +1,23 @@
 <template>
     <div class="messages-box">
+        <h1 class="title">Recent</h1>
         <div v-if="isLoggedIn" class="messages-container">
             <select size="10" v-model="selected" @change="getSelectedMessage(selected)" class="messages-display-container">
                 <option v-for="message in messages" :key="message._id" :value="message" class="messages-display"> {{ message.message }}
                 </option>
             </select>
-            <input 
-            type="text" 
-            v-model="selectedMessage"
-            placeholder="updated message"
-            />
-            <CloudArrowUpIcon class="icon-btn" @click="updateMessage(selected)"></CloudArrowUpIcon>
-            <TrashIcon class="icon-btn" @click="deleteMessage(selected)"></TrashIcon>
+            <div class="input-btn-container">
+                <input 
+                type="text" 
+                v-model="selectedMessage"
+                placeholder="updated message"
+                class="messages-input"
+                />
+                <div class="icon-btn-container">
+                    <CloudArrowUpIcon class="icon-btn cloudicon" @click="updateMessage(selected)"></CloudArrowUpIcon>
+                    <TrashIcon class="icon-btn trashicon" @click="deleteMessage(selected)"></TrashIcon>
+                </div>
+            </div>
         </div>
         <div v-else>
             <p>You're not logged in! Redirecting in... {{ countdown }}</p>
