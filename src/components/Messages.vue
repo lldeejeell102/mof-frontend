@@ -1,6 +1,7 @@
 <template>
+    <div class="spacer"></div>
+    <h1 class="title">Recent</h1>
     <div class="messages-box">
-        <h1 class="title">Recent</h1>
         <div v-if="isLoggedIn" class="messages-container">
             <select size="10" v-model="selected" @change="getSelectedMessage(selected)" class="messages-display-container">
                 <option v-for="message in messages" :key="message._id" :value="message" class="messages-display"> {{ message.message }}

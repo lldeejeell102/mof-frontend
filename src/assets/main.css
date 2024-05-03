@@ -670,6 +670,9 @@ footer hr{
 /* HISTORY PAGE */
 /* /////////////////////////////////////////////////// */
 .messages-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: whitesmoke;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -786,6 +789,9 @@ footer hr{
   .scroll-container{
     width: 80vw;
   }
+  .messages-container{
+    width: 300px;
+  }
   .nav-dropdown a{
     height: 2.5vh;
   }
@@ -806,5 +812,11 @@ footer hr{
   }
   .input-container{
     width: 300px;
+  }
+  .spacer{
+    height: 5vh;
+  }
+  .input-btn-container{
+    width: 90%;
   }
 }
