@@ -122,7 +122,7 @@
                     throw new Error ('failed to get messages')
                 }
                 console.log('updated message')
-                window.location.reload()
+                window.location.reload('/history')
             },
 
 //////////////////////////////////////////////////////////////////////////
@@ -142,7 +142,7 @@
                     throw new Error ('failed to get messages')
                 }
                 console.log("deleted message")
-                window.location.reload()
+                window.location.reload('/history')
             },
         },
 
